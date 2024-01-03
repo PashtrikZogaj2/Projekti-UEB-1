@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
+    <link rel="stylesheet" href="sell.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+    <script src="sell.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+</head>
+<body>
+
+    <section id="header">
+        <a href="#"><img src="Realtor-com-Logo.svg" width="150" height="90" class="logo"  alt=""></a>
+        <div>
+            <ul id="navbar">
+            <li><a  href="index.html">Home</a></li>
+            <li><a href="Buy.html">Buy</a></li>
+            <li><a class="active" href="Sell.html">Sell</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+            <li><a href="Rent.html">Rent</a></li>
+        </ul>
+        </div>
+    </section>
+    <div class="container-start">
+        <div class="button-container">
+            <button class="button1" onclick="house()"><h1>Sell House</h1></button>
+            <button class="button2" onclick="apatment()"><h1>Sell Apartment</h1></button>
+        </div>
+    </div>
+    <section class="container-fluid house-container" style="display: none; z-index: 1000;"></section>
+    <section class="container-fluid apratment-container" style="display: none; z-index: 1000;"></section>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
