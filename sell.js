@@ -19,7 +19,7 @@ function showDivs(n) {
   }
  
   x[slideIndex-1].style.display = "block";  
-
+  
 }
 var apartmentContent = `
 <section class="row" style="height: inherit">
@@ -31,13 +31,18 @@ var apartmentContent = `
                             <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" >
                             <div class="w3-left w3-hover-text-khaki" onclick="plusDivs(-1)">&#10094;</div>
                             </div>
-                            <img class="mySlides" src="upload.png" style="width:100%">
-
+                            <div id="imageHolder" style="min-width: 100%; min-height: 370px; overflow: hidden;">
+                            <label for="imageUpload">
+                            <img src="upload.png" class="mySlides" alt="Upload Image" style="cursor: pointer; width: 100%;">
+                            </label>
+                            <input type="file" id="imageUpload" style="display: none;">
+                            <button class="delete" onclick="deleteImage()">Delete</button>
+                            </div>
                             <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" >
                               <div class="w3-right w3-hover-text-khaki" onclick="plusDivs(1)">&#10095;</div>
                             </div>
                           </div>
-                        <input type="file" class="form-control mt-2" id="uploadButton">
+
                     </section>
                     <section class="col-9">
                         <section class="row" style="height: 20%;">
@@ -96,6 +101,9 @@ var apartmentContent = `
     
         </section>
     </section>
+    <script>
+        document.getElementById('imageUpload').addEventListener('change', handleFileSelect);
+    </script>
 `
 var houseContent = `
 <section class="row" style="height: inherit">
@@ -107,12 +115,17 @@ var houseContent = `
                             <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" >
                             <div class="w3-left w3-hover-text-khaki" onclick="plusDivs(-1)">&#10094;</div>
                             </div>
-                            <img class="mySlides" src="upload.png" style="width:100%">
+                            <div id="imageHolder" style="min-width: 100%; min-height: 370px; overflow: hidden;">
+                            <label for="imageUpload">
+                            <img src="upload.png" class="mySlides" alt="Upload Image" style="cursor: pointer; width: 100%;">
+                            </label>
+                            <input type="file" id="imageUpload" style="display: none;">
+                            </div>
                             <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" >
                               <div class="w3-right w3-hover-text-khaki" onclick="plusDivs(1)">&#10095;</div>
                             </div>
                           </div>
-                        <input type="file" class="form-control mt-2" id="uploadButton">
+                       
                     </section>
                     <section class="col-9">
                         <section class="row" style="height: 20%;">
@@ -171,7 +184,10 @@ var houseContent = `
            
     
         </section>
-    </section>`
+    </section>
+    <script>
+        document.getElementById('imageUpload').addEventListener('change', handleFileSelect);
+    </script>`
     function house(){
         $(".container-start").hide();
         $(".house-container").html(houseContent);
@@ -195,4 +211,39 @@ var houseContent = `
             "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
         });
         showDivs(slideIndex);
+    }
+
+    
+    let indexa=1;
+    function handleFileSelect(event) {
+      const file = event.target.files[0];
+
+      if (file) {
+        const reader = new FileReader();
+
+        reader.onload = function (e) {
+          const previewContainer = document.getElementById('imageHolder');
+          const imgElement = document.createElement('img');
+          imgElement.src = e.target.result;
+          imgElement.className='mySlides'
+          imgElement.style.maxWidth = '100%';
+          imgElement.style.maxHeight = '300px';
+
+          
+          previewContainer.insertBefore(imgElement, previewContainer.firstChild);
+          showDivs(indexa+2);
+          indexa++;
+        };
+
+        reader.readAsDataURL(file);
+      }
+      
+    }
+
+    function deleteImage(){
+        var x = document.getElementById('imageHolder');
+        x.removeChild(x.children[slideIndex-1]);
+        slideIndex--;
+        showDivs(indexa+2);
+        indexa--;
     }
