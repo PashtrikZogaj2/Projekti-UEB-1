@@ -32,11 +32,11 @@ var apartmentContent = `
                             <div class="w3-left w3-hover-text-khaki" onclick="plusDivs(-1)">&#10094;</div>
                             </div>
                             <div id="imageHolder" style="min-width: 100%; min-height: 370px; overflow: hidden;">
-                            <label for="imageUpload">
+                            <label for="imageUpload" class="upload">
                             <img src="upload.png" class="mySlides" alt="Upload Image" style="cursor: pointer; width: 100%;">
                             </label>
                             <input type="file" id="imageUpload" style="display: none;">
-                            <button class="delete" onclick="deleteImage()">Delete</button>
+                            <button type="button" class="delete" onclick="deleteImage()" style=""></button>
                             </div>
                             <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" >
                               <div class="w3-right w3-hover-text-khaki" onclick="plusDivs(1)">&#10095;</div>
@@ -48,7 +48,7 @@ var apartmentContent = `
                         <section class="row" style="height: 20%;">
                             <section class="col-6 title-holder">
                                 <label for="title">Title: </label>
-                                <input type="text" class="form-control title" placeholder="Title">
+                                <input type="text" class="form-control title" id="title" placeholder="Title">
                             </section>
                             <section class="col-6 price-holder">
                                 <label for="price">Price:</label>
@@ -80,12 +80,12 @@ var apartmentContent = `
                         <section class="row">
                             <section class="col info-holder">
                                 <label for="owner">Owner: </label>
-                                <input type="text" Id="owner" class="form-control mb-2" placeholder="Mr. John Smith">
+                                <input type="text" id="owner" class="form-control mb-2" placeholder="Mr. John Smith">
                             </section>
                         </section>
                         <section class="row">
                             <section class="col info-holder">
-                                <label for="contact">Contact number:</label>
+                                <label for="phone">Contact number:</label>
                                 <input id="phone" type="tel" name="phone">
                             </section>
                         </section>
@@ -116,10 +116,11 @@ var houseContent = `
                             <div class="w3-left w3-hover-text-khaki" onclick="plusDivs(-1)">&#10094;</div>
                             </div>
                             <div id="imageHolder" style="min-width: 100%; min-height: 370px; overflow: hidden;">
-                            <label for="imageUpload">
+                            <label for="imageUpload" class="upload">
                             <img src="upload.png" class="mySlides" alt="Upload Image" style="cursor: pointer; width: 100%;">
                             </label>
                             <input type="file" id="imageUpload" style="display: none;">
+                            <button type="button" class="delete" onclick="deleteImage()" style=""></button>
                             </div>
                             <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" >
                               <div class="w3-right w3-hover-text-khaki" onclick="plusDivs(1)">&#10095;</div>
@@ -216,7 +217,8 @@ var houseContent = `
     
     let indexa=1;
     function handleFileSelect(event) {
-      const file = event.target.files[0];
+        const fileInput = event.target;
+        const file = fileInput.files[0];
 
       if (file) {
         const reader = new FileReader();
@@ -237,13 +239,18 @@ var houseContent = `
 
         reader.readAsDataURL(file);
       }
-      
+      fileInput.value = '';
     }
 
     function deleteImage(){
         var x = document.getElementById('imageHolder');
-        x.removeChild(x.children[slideIndex-1]);
-        slideIndex--;
-        showDivs(indexa+2);
-        indexa--;
+        if(x.children[slideIndex-1].className === "upload"){
+            console.log("delete");
+        }else{
+            x.removeChild(x.children[slideIndex-1]);
+            slideIndex--;
+            showDivs(indexa+2);
+            indexa--;
+        }
+        
     }

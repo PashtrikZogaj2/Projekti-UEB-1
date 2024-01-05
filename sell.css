@@ -228,12 +228,20 @@ html, body {
 }
 .delete {
     position: absolute;
-    bottom: 20px; /* Adjust the distance from the bottom */
-    right: 20px; /* Adjust the distance from the right */
-    background-color: #007BFF; /* Button background color */
-    color: #fff; /* Text color */
-    padding: 10px 20px; /* Padding around the text */
+    bottom: 20px; 
+    right: 20px; 
+    background-color: transparent;
+    padding: 10px 20px; 
     border: none;
-    border-radius: 5px;
     cursor: pointer;
+    height:44px;
+    width:44px;
+    background-image: url(delete.png);
+    background-size: cover; 
+    background-repeat: no-repeat;
   }
+.delete:hover{
+    transform: scale(1.2);
+    transition-duration: 100ms;
+    border: transparent;
+}
