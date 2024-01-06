@@ -57,20 +57,20 @@ var apartmentContent = `
                         </section>
                         <section class="row" style="height: 80%;">
                             <section class="col">
-                                <label>Description: </label>
-                                <textarea name="message" class="form-control description"></textarea>
+                                <label for="description">Description: </label>
+                                <textarea id="description" name="message" class="form-control description"></textarea>
                             </section>
                         </section>
                     </section>
                 </section>
                 <section class="row" style="height: calc(50% - 100px);">
                     <section class="col-4 slider-holder">
-                        <label for="slider1">Floor</label>
-                        <input type="range" class="form-control-range mb-2" min="0" max="10" value="3" id="slider1">
-                        <label for="slider2">Number of bedrooms</label>
-                        <input type="range" class="form-control-range" min="0" max="50" value="3" id="slider2">
+                        <label for="slider1">On the <span id="floorValue">3</span> floor.</label>
+                        <input type="range" class="form-control-range mb-2" min="0" max="86" value="3" id="slider1">
+                        <label for="slider2">Number of bedrooms : <span id="bedroomValue">3</span></label>
+                        <input type="range" class="form-control-range" min="0" max="20" value="3" id="slider2">
                     </section>
-                    <section class="col-8">
+                    <section class="col-8 col-custom">
                         <section class="row">
                             <section class="col info-holder">
                                 <label for="adress">Adress: </label>
@@ -93,7 +93,7 @@ var apartmentContent = `
                     </section>
                 </section>
                 <section class="row" style="height: 100px; display: flex; align-items: center;">
-                    <input type="submit" value="Put on sale" class="btn btn-primary sell">
+                    <input type="submit" onclick="gatherFormData(event);" value="Put on sale" class="btn btn-primary sell">
                 </section>
             </form>
             </section>
@@ -103,6 +103,8 @@ var apartmentContent = `
     </section>
     <script>
         document.getElementById('imageUpload').addEventListener('change', handleFileSelect);
+        setupSlider('slider1' , 'floorValue');
+        setupSlider('slider2', 'bedroomValue');
     </script>
 `
 var houseContent = `
@@ -149,12 +151,12 @@ var houseContent = `
                 </section>
                 <section class="row" style="height: calc(50% - 100px);">
                     <section class="col-4 slider-holder">
-                        <label for="slider1">Number of floors</label>
+                        <label for="slider1">Number of floors : <span id="floorValue">3</span></label>
                         <input type="range" class="form-control-range mb-2" min="0" max="10" value="3" id="slider1">
-                        <label for="slider2">Number of bedrooms</label>
+                        <label for="slider2">Number of bedrooms : <span id="bedroomValue">3</span></label>
                         <input type="range" class="form-control-range" min="0" max="50" value="3" id="slider2">
                     </section>
-                    <section class="col-8">
+                    <section class="col-8 col-custom">
                         <section class="row">
                             <section class="col info-holder">
                                 <label for="adress">Adress: </label>
@@ -177,7 +179,7 @@ var houseContent = `
                     </section>
                 </section>
                 <section class="row" style="height: 100px; display: flex; align-items: center;">
-                    <input type="submit" value="Put on sale" class="btn btn-primary sell">
+                    <input type="submit" onclick="gatherFormData(event);" value="Put on sale" class="btn btn-primary sell">
                 </section>
             </form>
             </section>
@@ -188,6 +190,8 @@ var houseContent = `
     </section>
     <script>
         document.getElementById('imageUpload').addEventListener('change', handleFileSelect);
+        setupSlider('slider1' , 'floorValue');
+        setupSlider('slider2', 'bedroomValue');
     </script>`
     function house(){
         $(".container-start").hide();
@@ -254,3 +258,46 @@ var houseContent = `
         }
         
     }
+
+    function setupSlider(inputId, outputId) {
+        const rangeInput = document.getElementById(inputId);
+        const outputElement = document.getElementById(outputId);
+  
+        rangeInput.addEventListener('input', function() {
+          outputElement.textContent = this.value;
+        });
+      }
+function gatherFormData(event) {
+        event.preventDefault(); 
+  
+
+        const title = document.getElementById('title').value;
+        const price = document.getElementById('price').value;
+        const description = document.getElementById('description').value;
+        const floorValue = document.getElementById('slider1').value;
+        const bedroomValue = document.getElementById('slider2').value;
+        const address = document.getElementById('adress').value;
+        const owner = document.getElementById('owner').value;
+        const phone = document.getElementById('phone').value;
+        const imageSources = [];
+        const images = document.querySelectorAll('.mySlides');
+        for (let i = 0; i < images.length - 1; i++) {
+            imageSources.push(images[i].src);
+          }
+
+        const formData = {
+          title: title,
+          price: price,
+          description: description,
+          floorValue: floorValue,
+          bedroomValue: bedroomValue,
+          address: address,
+          owner: owner,
+          phone: phone,
+          images: imageSources
+        };
+  
+
+        //console.log(formData);
+        window.location.href = "./Buy.html";
+      }
