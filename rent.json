@@ -1,84 +1,84 @@
 [
 
     {
-       "imgSrc": "./images/House1.jpg",
+       "imgSrc": "./House1.jpg",
        "productName": "Luxury Apartment, New York",
         "rating": 5,
         "originalPrice": "$1,200,000",
         "type": "apartment"
     },
     {
-       "imgSrc": "./images/House2.jpg",
+       "imgSrc": "./House2.jpg",
        "productName": "Spacious Loft, Chicago",
        "rating": 4,
         "originalPrice": "$850,000",
         "type": "apartment"
     },
     {
-        "imgSrc": "./images/House3.jpg",
+        "imgSrc": "./House3.jpg",
         "productName": "Modern Penthouse, Miami",
         "rating": 5,
         "originalPrice": "$1,500,000",
         "type": "apartment"
     },
     {
-        "imgSrc": "./images/House4.jpg",
+        "imgSrc": "./House4.jpg",
         "productName": "Hillside Retreat, Arizona",
         "rating": 5,
         "originalPrice": "$923,456",
         "type": "house"
     },
     {
-        "imgSrc": "./images/House5.jpg",
+        "imgSrc": "./House5.jpg",
         "productName": "Contemporary Villa, California",
         "rating": 4,
         "originalPrice": "$1,350,000",
         "type": "house"
     },
     {
-        "imgSrc": "./images/House6.jpg",
+        "imgSrc": "./House6.jpg",
         "productName": "Mountain Cabin, Colorado",
         "rating": 4,
         "originalPrice": "$800,000",
         "type": "house"
     },
     {
-        "imgSrc": "./images/House7.jpg",
+        "imgSrc": "./House7.jpg",
         "productName": "Seaside Oasis, Florida",
         "rating": 5,
         "originalPrice": "$1,650,000",
         "type": "house"
     },
     {
-        "imgSrc": "./images/House8.jpg",
+        "imgSrc": "./House8.jpg",
         "productName": "Desert Haven, Arizona",
         "rating": 5,
         "originalPrice": "$923,456",
         "type": "house"
     },
     {
-        "imgSrc": "./images/House9.jpg",
+        "imgSrc": "./House9.jpg",
         "productName": "Luxury Residence, California",
         "rating": 4,
         "originalPrice": "$1,350,000",
         "type": "house"
     },
     {
-        "imgSrc": "./images/House10.jpg",
+        "imgSrc": "./House10.jpg",
         "productName": "Urban Loft, Colorado",
         "rating": 4,
         "originalPrice": "$1,000,000",
         "type": "apartment"
     },
     {
-        "imgSrc": "./images/House11.jpg",
+        "imgSrc": "./House11.jpg",
         "productName": "Ocean View Apartment, Florida",
         "rating": 5,
         "originalPrice": "$2,000,000",
         "type": "apartment"
     },
     {
-        "imgSrc": "./images/House12.jpg",
+        "imgSrc": "./House12.jpg",
         "productName": "Luxury Penthouse, Florida",
         "rating": 5,
         "originalPrice": "$2,500,000",
