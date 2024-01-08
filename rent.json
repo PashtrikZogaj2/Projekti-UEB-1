@@ -1,90 +1,170 @@
 [
-
     {
-       "imgSrc": "./House1.jpg",
-       "productName": "Luxury Apartment, New York",
+        "id": "1",
+        "images": ["./House1.jpg"],
+        "title": "Luxury Apartment",
+        "address": "New York",
         "rating": 5,
-        "originalPrice": "$1,200,000",
+        "price": "$1,200",
+        "phone": "123-456-7890",
+        "owner": "John Doe",
+        "floorValue": 10,
+        "bedroomValue": 3,
+        "description": "A luxurious apartment in the heart of New York City.",
         "type": "apartment"
     },
     {
-       "imgSrc": "./House2.jpg",
-       "productName": "Spacious Loft, Chicago",
-       "rating": 4,
-        "originalPrice": "$850,000",
-        "type": "apartment"
-    },
-    {
-        "imgSrc": "./House3.jpg",
-        "productName": "Modern Penthouse, Miami",
-        "rating": 5,
-        "originalPrice": "$1,500,000",
-        "type": "apartment"
-    },
-    {
-        "imgSrc": "./House4.jpg",
-        "productName": "Hillside Retreat, Arizona",
-        "rating": 5,
-        "originalPrice": "$923,456",
-        "type": "house"
-    },
-    {
-        "imgSrc": "./House5.jpg",
-        "productName": "Contemporary Villa, California",
+        "id": "2",
+        "images": ["./House2.jpg"],
+        "title": "Spacious Loft",
+        "address": "Chicago",
         "rating": 4,
-        "originalPrice": "$1,350,000",
-        "type": "house"
-    },
-    {
-        "imgSrc": "./House6.jpg",
-        "productName": "Mountain Cabin, Colorado",
-        "rating": 4,
-        "originalPrice": "$800,000",
-        "type": "house"
-    },
-    {
-        "imgSrc": "./House7.jpg",
-        "productName": "Seaside Oasis, Florida",
-        "rating": 5,
-        "originalPrice": "$1,650,000",
-        "type": "house"
-    },
-    {
-        "imgSrc": "./House8.jpg",
-        "productName": "Desert Haven, Arizona",
-        "rating": 5,
-        "originalPrice": "$923,456",
-        "type": "house"
-    },
-    {
-        "imgSrc": "./House9.jpg",
-        "productName": "Luxury Residence, California",
-        "rating": 4,
-        "originalPrice": "$1,350,000",
-        "type": "house"
-    },
-    {
-        "imgSrc": "./House10.jpg",
-        "productName": "Urban Loft, Colorado",
-        "rating": 4,
-        "originalPrice": "$1,000,000",
+        "price": "$850",
+        "phone": "987-654-3210",
+        "owner": "Jane Smith",
+        "floorValue": 5,
+        "bedroomValue": 2,
+        "description": "A spacious loft with a beautiful view in Chicago.",
         "type": "apartment"
     },
     {
-        "imgSrc": "./House11.jpg",
-        "productName": "Ocean View Apartment, Florida",
+        "id": "3",
+        "images": ["./House3.jpg"],
+        "title": "Modern Penthouse",
+        "address": "Miami",
         "rating": 5,
-        "originalPrice": "$2,000,000",
+        "price": "$1,500",
+        "phone": "555-123-4567",
+        "owner": "Robert Johnson",
+        "floorValue": 15,
+        "bedroomValue": 4,
+        "description": "A modern penthouse with stunning views in Miami.",
         "type": "apartment"
     },
     {
-        "imgSrc": "./House12.jpg",
-        "productName": "Luxury Penthouse, Florida",
+        "id": "4",
+        "images": ["./House4.jpg"],
+        "title": "Hillside Retreat",
+        "address": "Arizona",
         "rating": 5,
-        "originalPrice": "$2,500,000",
+        "price": "$923",
+        "phone": "444-555-6789",
+        "owner": "Emily Davis",
+        "floorValue": 2,
+        "bedroomValue": 1,
+        "description": "A hillside retreat with a peaceful ambiance in Arizona.",
+        "type": "house"
+    },
+    {
+        "id": "5",
+        "images": ["./House5.jpg"],
+        "title": "Contemporary Villa",
+        "address": "California",
+        "rating": 4,
+        "price": "$1,350",
+        "phone": "777-888-9999",
+        "owner": "Michael Wilson",
+        "floorValue": 3,
+        "bedroomValue": 2,
+        "description": "A contemporary villa with modern amenities in California.",
+        "type": "house"
+    },
+    {
+        "id": "6",
+        "images": ["./House6.jpg"],
+        "title": "Luxury Residence",
+        "address": "California",
+        "rating": 4,
+        "price": "$800",
+        "phone": "123-555-6789",
+        "owner": "Sophia Brown",
+        "floorValue": 8,
+        "bedroomValue": 3,
+        "description": "A luxurious residence with high-end features in California.",
+        "type": "house"
+    },
+    {
+        "id": "7",
+        "images": ["./House7.jpg"],
+        "title": "Seaside Oasis",
+        "address": "Florida",
+        "rating": 5,
+        "price": "$1,650",
+        "phone": "333-777-9999",
+        "owner": "David Miller",
+        "floorValue": 1,
+        "bedroomValue": 4,
+        "description": "A seaside oasis with breathtaking views in Florida.",
+        "type": "house"
+    },
+    {
+        "id": "8",
+        "images": ["./House8.jpg"],
+        "title": "Desert Haven",
+        "address": "Arizona",
+        "rating": 5,
+        "price": "$923",
+        "phone": "999-111-2222",
+        "owner": "Olivia Taylor",
+        "floorValue": 4,
+        "bedroomValue": 2,
+        "description": "A haven in the desert with a tranquil atmosphere in Arizona.",
+        "type": "house"
+    },
+    {
+        "id": "9",
+        "images": ["./House9.jpg"],
+        "title": "Mountain Cabin",
+        "address": "Colorado",
+        "rating": 4,
+        "price": "$1,350",
+        "phone": "111-222-3333",
+        "owner": "Daniel Harris",
+        "floorValue": 2,
+        "bedroomValue": 1,
+        "description": "A cozy mountain cabin perfect for nature lovers in Colorado.",
+        "type": "house"
+    },
+    {
+        "id": "10",
+        "images": ["./House10.jpg"],
+        "title": "Urban Loft",
+        "address": "Colorado",
+        "rating": 4,
+        "price": "$1,000",
+        "phone": "666-888-1111",
+        "owner": "Ava Martinez",
+        "floorValue": 6,
+        "bedroomValue": 2,
+        "description": "An urban loft with a contemporary design in Colorado.",
+        "type": "apartment"
+    },
+    {
+        "id": "11",
+        "images": ["./House11.jpg"],
+        "title": "Ocean View Apartment",
+        "address": "Florida",
+        "rating": 5,
+        "price": "$2,000",
+        "phone": "222-333-4444",
+        "owner": "Jackson White",
+        "floorValue": 12,
+        "bedroomValue": 3,
+        "description": "An apartment with stunning ocean views in Florida.",
+        "type": "apartment"
+    },
+    {
+        "id": "12",
+        "images": ["./House12.jpg"],
+        "title": "Luxury Penthouse",
+        "address": "Florida",
+        "rating": 5,
+        "price": "$2,500,000",
+        "phone": "444-555-6666",
+        "owner": "Emma Anderson",
+        "floorValue": 20,
+        "bedroomValue": 5,
+        "description": "A luxury penthouse with exclusive features in Florida.",
         "type": "apartment"
     }
-    
-          
-  ]
-  
+]

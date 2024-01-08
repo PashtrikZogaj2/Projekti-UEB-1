@@ -39,11 +39,31 @@ document.addEventListener("DOMContentLoaded", function () {
                             item.style.display = "block";
                         });
                     }
-               // Clear search bar when a button is clicked
-               searchInput.value = "";
+
+                    // Clear search bar when a button is clicked
+                    searchInput.value = "";
+                });
             });
-        });
-    })
+
+            // Add click event listener to each product item
+            container.querySelectorAll(".product-section").forEach(item => {
+                item.addEventListener("click", function (event) {
+                    // Toggle the "enlarged" class when a product item is clicked
+                    this.classList.toggle("enlarged");
+                    event.stopPropagation(); // Prevent the click event from propagating to document
+                    // Clear search bar when a product item is clicked
+                    searchInput.value = "";
+                });
+            });
+
+            // Add click event listener to document to close the enlarged box when clicking outside
+            document.addEventListener("click", function (event) {
+                const enlargedItems = container.querySelectorAll(".product-section.enlarged");
+                if (enlargedItems.length > 0 && !enlargedItems[0].contains(event.target)) {
+                    enlargedItems[0].classList.remove("enlarged");
+                }
+            });
+        })
         .catch(error => console.error("Error fetching JSON data:", error));
 
     function displayItems() {
@@ -57,21 +77,28 @@ document.addEventListener("DOMContentLoaded", function () {
             const imgDiv = document.createElement("div");
             imgDiv.className = "product-img-center";
 
-            const img = document.createElement("img");
-            img.className = "product-img";
-            img.src = house.imgSrc;
-            imgDiv.appendChild(img);
+            // Modified to support multiple images
+            house.images.forEach(imageSrc => {
+                const img = document.createElement("img");
+                img.className = "product-img";
+                img.src = imageSrc;
+                imgDiv.appendChild(img);
+            });
 
             innerDiv.appendChild(imgDiv);
 
-            const productName = document.createElement("p");
-            productName.className = "product-name";
-            productName.innerHTML = `<a href="#">${house.productName}</a>`;
-            innerDiv.appendChild(productName);
+            const infoDiv = document.createElement("div");
+            infoDiv.className = "product-info";
+
+            const titleParagraph = document.createElement("p");
+            titleParagraph.className = "product-title";
+            titleParagraph.innerHTML = `<a href="#">${house.title}</a> ${house.address}`;
+            infoDiv.appendChild(titleParagraph);
+
 
             const ratingParagraph = document.createElement("p");
             ratingParagraph.innerHTML = "Renters rated:";
-            innerDiv.appendChild(ratingParagraph);
+            infoDiv.appendChild(ratingParagraph);
 
             const ratingStars = document.createElement("p");
             ratingStars.className = "product-rating";
@@ -84,16 +111,23 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             ratingStars.innerHTML += `<span>(${house.rating})</span>`;
-            innerDiv.appendChild(ratingStars);
+            infoDiv.appendChild(ratingStars);
 
             const priceParagraph = document.createElement("p");
             priceParagraph.className = "product-price";
             priceParagraph.innerHTML = `
-                <span class="product-original-price">${house.originalPrice}</span>
+                <span class="product-original-price">${house.price}</span>
                 <span class="product-per-month">per month</span>
             `;
 
-            innerDiv.appendChild(priceParagraph);
+            infoDiv.appendChild(priceParagraph);
+
+            // Additional information
+            
+
+        
+            innerDiv.appendChild(infoDiv);
+
             houseDiv.appendChild(innerDiv);
             container.appendChild(houseDiv);
         });
@@ -101,7 +135,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function updateDisplayedItems(query) {
         container.querySelectorAll(".product-section").forEach(item => {
-            const productName = item.querySelector(".product-name a").innerText.toLowerCase();
+            const productName = item.querySelector(".product-title a").innerText.toLowerCase();
             const itemType = item.className.split(" ").find(className => className.includes("item")) || "all-item";
 
             if ((productName.includes(query) || query === "") && (itemType === `${selectedType}-item` || selectedType === "all")) {
@@ -111,11 +145,9 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
+
     const clearSearchButton = document.getElementById("clear-search-button"); // Replace "clear-search-button" with the actual ID or class of your button
-    clearSearchButton.addEventListener("keypress", function (e) {
-        if (e.key === "Enter") {
-            searchInput.value = ""; // Clear the search bar
-        }
-        
+    clearSearchButton.addEventListener("click", function () {
+        searchInput.value = ""; // Clear the search bar
     });
 });
