@@ -16,7 +16,7 @@
 
     <section id="header">
         <a href="#"><img src="Realtor-com-Logo.svg" width="150" height="90" class="logo"  alt=""></a>
-        <div>
+        <div id="headerbuttons">
             <ul id="navbar">
             <li><a  href="index.html">Home</a></li>
             <li><a href="Buy.html">Buy</a></li>
@@ -28,9 +28,13 @@
         </div>
     </section>
     <div class="container-start">
-        <div class="button-container">
-            <button class="button1" onclick="house()"><h1>Sell House</h1></button>
-            <button class="button2" onclick="apatment()"><h1>Sell Apartment</h1></button>
+        <div class="button-container first">
+            <button class="buttonRent" onclick="rent()"></button>
+            <button class="buttonSell" onclick="sell()"></button>
+        </div>
+        <div class="button-container second">
+            <button class="button1" onclick="house()"><h1>House</h1></button>
+            <button class="button2" onclick="apatment()"><h1>Apartment</h1></button>
         </div>
     </div>
     <section class="container-fluid house-container" style="display: none; z-index: 1000;"></section>
@@ -39,5 +43,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.4.4/lz-string.min.js"></script>
+    
 </body>
 </html>
