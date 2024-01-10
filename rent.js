@@ -22,10 +22,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
             container.querySelectorAll(".product-section").forEach(item => {
                 item.addEventListener("click", function (event) {
-                    this.classList.toggle("enlarged");
+                    if (!event.target.closest('.detailed-section')) {
+                        this.classList.toggle("enlarged");
+                    }
                     event.stopPropagation();
                 });
             });
+            
 
             document.addEventListener("click", closeDetailedSection);
         })
@@ -62,10 +65,10 @@ document.addEventListener("DOMContentLoaded", function () {
         const infoDiv = document.createElement("div");
         infoDiv.className = "product-info";
 
-        infoDiv.appendChild(createElementWithText("p", "product-title", `<a href="#">${house.title}</a> ${house.address}`));
+        infoDiv.appendChild(createElementWithText("p", "product-title", `<a href="#">${house.title}</a> <br>${house.address}`));
         infoDiv.appendChild(createElementWithText("p", "", "Renters rated:"));
         infoDiv.appendChild(createRatingStars(house.rating));
-        infoDiv.appendChild(createElementWithText("p", "product-price", `<span class="product-original-price">${house.price}</span><span class="product-per-month">per month</span>`));
+        infoDiv.appendChild(createElementWithText("p", "product-price", `<span class="product-original-price">${house.price}</span><span class="product-per-month"> per month</span>`));
 
         innerDiv.appendChild(infoDiv);
         houseDiv.appendChild(innerDiv);
@@ -118,6 +121,9 @@ document.addEventListener("DOMContentLoaded", function () {
             for (let i = 0; i < slides.length; i++) slides[i].style.display = "none";
             slides[slideIndex - 1].style.display = "block";
         }
+
+        showSlides(slideIndex);
+
 
         document.addEventListener("click", closeDetailedSection);
     }
