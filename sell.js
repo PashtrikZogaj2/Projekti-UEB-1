@@ -36,6 +36,16 @@ function plusDivs(n) {
     x[slideIndex - 1].style.opacity = 1;
     x[slideIndex - 1].style.visibility = 'visible';
   }
+function allow_neg(sale_or_rent){
+    if(sale_or_rent === "rent"){
+        return '';
+    }else{
+        return`<label for="Negotable" class="negl">Negotable Price
+        <input type="checkbox" name="Neg" id="Negotable" value="Negotable Price">
+        <span class="checkmark"></span>
+        </label>`
+    }
+}
 function createContent(sale_or_rent, type){
 if(type === "apartment"){ 
     var apartmentContent = `
@@ -101,9 +111,12 @@ if(type === "apartment"){
                                 </section>
                             </section>
                             <section class="row">
-                                <section class="col info-holder">
+                                <section class="col-9 info-holder">
                                     <label for="phone">Contact number:</label>
                                     <input id="phone" type="tel" name="phone">
+                                </section>
+                                <section class="col-3 neg">
+                                    ${allow_neg(sale_or_rent)}
                                 </section>
                             </section>
         
@@ -124,6 +137,7 @@ if(type === "apartment"){
             setupSlider('slider2', 'bedroomValue');
         </script>
     `;
+
 return apartmentContent;
 }
 else if(type === "house"){
@@ -190,9 +204,12 @@ var houseContent = `
                             </section>
                         </section>
                         <section class="row">
-                            <section class="col info-holder">
-                                <label for="phone">Contact number:</label>
-                                <input id="phone" type="tel" name="phone">
+                            <section class="col-9 info-holder">
+                                    <label for="phone">Contact number:</label>
+                                    <input id="phone" type="tel" name="phone">
+                                </section>
+                            <section class="col-3 neg">
+                                    ${allow_neg(sale_or_rent)}
                             </section>
                         </section>
     
@@ -317,26 +334,49 @@ function gatherFormData(event) {
             imageSources.push(images[i].src);
           }
           
-        const formData = {
-          sale_or_rent: sale_or_rent,
-          id:'',
-          images: imageSources,
-          title: title,
-          address: address,
-          rating: '',
-          price: price,
-          phone: phone,
-          owner: owner,
-          floorValue: floorValue,
-          bedroomValue: bedroomValue,
-          description: description,
-          type: typeReceved
-        };
+        
   
-
-        console.log(formData);
-       
+        let formData={};
+        let direction ='';
        const jsonFileName = sale_or_rent === 'sale' ? 'buy.json' : 'rent.json';
+       if(sale_or_rent === "rent"){
+        direction = "rent"
+        formData = {
+            sale_or_rent: sale_or_rent,
+            id:'',
+            images: imageSources,
+            title: title,
+            address: address,
+            rating: '',
+            price: price,
+            phone: phone,
+            owner: owner,
+            floorValue: floorValue,
+            bedroomValue: bedroomValue,
+            description: description,
+            type: typeReceved
+          };
+       }
+       else{
+        direction = "Buy"
+        const neg = document.getElementById('Negotable').checked;
+        formData = {
+            sale_or_rent: sale_or_rent,
+            id:'',
+            images: imageSources,
+            title: title,
+            address: address,
+            rating: '',
+            price: price,
+            phone: phone,
+            owner: owner,
+            floorValue: floorValue,
+            bedroomValue: bedroomValue,
+            description: description,
+            type: typeReceved,
+            Neg:neg
+            };
+       }
         fetch(`http://localhost:3000/`, {
                 method: 'POST',
                 headers: {
@@ -348,12 +388,12 @@ function gatherFormData(event) {
             .then(response => response.json())
             .then(data => {
                 console.log('Success:', data);
-                
+                window.location.href = `./${direction}.html`;
             })
             .catch((error) => {
                 console.error('Error:', error);
             });
-            // window.location.href = "./Buy.html";
+            
       }
       function rent(){
         sale_or_rent = 'rent';
