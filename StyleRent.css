@@ -295,7 +295,7 @@ background-color: #ffffff20;
     box-shadow: inset 0 0 0 1000px #00181d90;
   }
   #bgshadow{
-    box-shadow: 0 0 100px 300px #00181d20;
+    box-shadow: 0 0 300px 300px #00181d50;
   }
 /*Listingat edhe ratings*/
 .product-section {
@@ -623,13 +623,7 @@ background-color: #ffffff20;
         align-items: center;
     }
     
-    #imageHolder{
-        min-width: 100%;
-        min-height: 370px;
-        overflow: hidden;
-        display: flex;
-        align-items: center;
-    }
+    
     #imageHolder{
         min-width: 100%;
         min-height: 370px;
