@@ -16,7 +16,7 @@
     },
     {
         "id": "2",
-        "images": ["./Listing2.jpeg","./Listing2dy.jpg","./Kitchen2.jpg"],
+        "images": ["./Listing10.jpg","./Listing2dy.jpg","./Kitchen2.jpg"],
         "title": "Cape Cod,LosAngeles",
         "address": "California",
         "rating": 5,
@@ -31,7 +31,7 @@
     },
     {
         "id": "3",
-        "images": ["./Listing3.jpg","./Listing3dy.png","./Kitchen3.jpg"],
+        "images": ["./Listing5.jpg","./Listing3dy.png","./Kitchen3.jpg"],
         "title": "Two Story Lake View, Austin",
         "address": "Texas",
         "rating": 4,
@@ -76,7 +76,7 @@
     },
     {
         "id": "6",
-        "images": ["./Listing6.jpeg","./Listing6dy.jpg","./Kitchen6.jpg"],
+        "images": ["./Listing3.jpg","./Listing6dy.jpg","./Kitchen6.jpg"],
         "title": "LakeSide View Apartment",
         "address": "Seattle",
         "rating": 5,
@@ -136,7 +136,7 @@
     },
     {
         "id": "10",
-        "images": ["./Listing10.jpg","./Listing10dy.webp","./Kitchen10.jpg"],
+        "images": ["./Listing2.jpeg","./Listing10dy.webp","./Kitchen10.jpg"],
         "title": "Cod Condo,Massive Backyard",
         "address": "Texas",
         "rating": 5,

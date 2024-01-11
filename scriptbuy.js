@@ -97,11 +97,32 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function updateDisplayedItems(query, searchType) {
+        const noResultsWarning = document.getElementById("no-results-warning");
+        let hasResults = false;
+
         container.querySelectorAll(".product-section").forEach(item => {
             const productAddress = item.querySelector(".product-info .product-address").innerText.toLowerCase();
             const itemType = item.className.split(" ").find(className => className.includes("item")) || "all-item";
-            item.style.display = (productAddress.includes(query) || query === "") && (itemType === `${selectedType}-item` || selectedType === "all") ? "block" : "none";
+            const isVisible = (productAddress.includes(query) || query === "") && (itemType === `${selectedType}-item` || selectedType === "all");
+
+            item.style.display = isVisible ? "block" : "none";
+
+            if (isVisible) {
+                hasResults = true;
+            }
         });
+
+        if (!hasResults) {
+            if (!noResultsWarning) {
+                const warning = createElementWithText("p", "no-results-warning", "No results found.");
+                warning.id = "no-results-warning";
+                container.appendChild(warning);
+            }
+        } else {
+            if (noResultsWarning) {
+                container.removeChild(noResultsWarning);
+            }
+        }
     }
     
     
