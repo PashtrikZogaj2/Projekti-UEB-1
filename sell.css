@@ -242,7 +242,7 @@ html, body {
     align-items: center;
     justify-content: space-between;
     padding: 10px 80px;
-    background: #005163;
+    background: linear-gradient(to right, #005163, #00181d);
     z-index: 999;
     position: sticky;
     top: 0;
@@ -265,9 +265,9 @@ html, body {
     padding: 1px 10px;
     position: relative;
     margin: 8px;
-    border: 1px solid #091a2b;
+    border: 1px solid #ffffff;
     border-radius: 14px;
-    box-shadow: 0 0 8px #091a2b;
+    box-shadow: 0 0 3px #ffffff;
     width:90px;
     transition: all 0.3s ease;
 }
@@ -277,14 +277,14 @@ html, body {
     font-size: 100%;
     font-size: 18px;
     font-weight: 600;
-    color: #c8e5ff;
+    color: #ffffff;
     transition: 0.3s ease;
 }
 #navbar li:hover, #navbar li:has(a.active) {
-    border-bottom: 3px solid #091a2bcc;
-    border-top: 3px solid #091a2bcc;
-    border-right: 2px solid #091a2bcc;
-    border-left: 2px solid #091a2bcc;
+    border-bottom: 3px solid #ffffffcc;
+    border-top: 3px solid #ffffffcc;
+    border-right: 2px solid #ffffffcc;
+    border-left: 2px solid #ffffffcc;
     transition: 0.1s;
     margin:12px;
     transform: scale(1.2);}
@@ -292,7 +292,6 @@ html, body {
 #navbar li a.active {
     transition:all 0.2s ease-in-out;
 }
-
 
 #imageHolder{
     min-width: 100%;
@@ -463,7 +462,7 @@ dl, ol, ul {
     margin-left: 9%;
     width:300px;
 }
-.negl {
+.negl,.cont {
     display: flex;
     align-items: center;
     position: relative;
@@ -477,7 +476,7 @@ dl, ol, ul {
   }
   
   /* Hide the browser's default checkbox */
-.negl input {
+.negl input,.cont input {
     position: absolute;
     opacity: 0;
     cursor: pointer;
@@ -486,7 +485,7 @@ dl, ol, ul {
   }
   
 /* Create a custom checkbox */
-.checkmark {
+.checkmark  {
     position: absolute;
     top: 0;
     left: 0;
@@ -499,12 +498,12 @@ dl, ol, ul {
   }
   
   /* On mouse-over, add a grey background color */
-  .negl:hover input ~ .checkmark {
+  .negl:hover input ~ .checkmark,.cont:hover input ~ .checkmark {
     background-color: #ccc;
   }
   
   /* When the checkbox is checked, add a blue background */
-  .negl input:checked ~ .checkmark {
+  .negl input:checked ~ .checkmark,.cont input:checked ~ .checkmark {
     background-color: #005163;
   }
   
@@ -516,11 +515,11 @@ dl, ol, ul {
   }
   
   /* Show the checkmark when checked */
-  .negl input:checked ~ .checkmark:after {
+  .negl input:checked ~ .checkmark:after ,.cont input:checked ~ .checkmark:after {
     display: block;
   }
 
-  .negl .checkmark:after {
+  .negl .checkmark:after,.cont .checkmark:after{
     left: 9px;
     top: 5px;
     width: 5px;
@@ -533,4 +532,5 @@ dl, ol, ul {
   }
   .btn:hover{
         background-color: #196272;
+        outline: 2px solid #b2cad0;
   }

@@ -37,7 +37,7 @@ function plusDivs(n) {
     x[slideIndex - 1].style.visibility = 'visible';
   }
 function allow_neg(sale_or_rent){
-    if(sale_or_rent === "rent"){
+    if(sale_or_rent.match("/rent/") === "rent"){
         return '';
     }else{
         return`<label for="Negotable" class="negl">Negotable Price
@@ -45,6 +45,12 @@ function allow_neg(sale_or_rent){
         <span class="checkmark"></span>
         </label>`
     }
+}
+function contract(){
+         return `<label for="contract" class="cont">Generate Contract
+        <input type="checkbox" name="Cont" id="contract" value="Generate Contract">
+        <span class="checkmark"></span>
+        </label>`
 }
 function createContent(sale_or_rent, type){
 if(type === "apartment"){ 
@@ -117,12 +123,16 @@ if(type === "apartment"){
                                 </section>
                                 <section class="col-3 neg">
                                     ${allow_neg(sale_or_rent)}
+                                    ${contract()}
                                 </section>
                             </section>
         
                         </section>
                     </section>
                     <section class="row" style="height: 100px; display: flex; align-items: center;">
+                        <audio id="Audio">
+                        <source src="audio.mp3" type="audio/mp3">
+                        </audio>
                         <input type="submit" onclick="gatherFormData(event);" value="Put on ${sale_or_rent}" class="btn btn-primary sell">
                     </section>
                 </form>
@@ -132,6 +142,12 @@ if(type === "apartment"){
             </section>
         </section>
         <script>
+            $(document).ready(function() {
+                    $(".btn").click(function() {
+                    var audio = $("#Audio")[0];
+                        audio.play();
+                    });
+                });
             document.getElementById('imageUpload').addEventListener('change', handleFileSelect);
             setupSlider('slider1' , 'floorValue');
             setupSlider('slider2', 'bedroomValue');
@@ -210,12 +226,16 @@ var houseContent = `
                                 </section>
                             <section class="col-3 neg">
                                     ${allow_neg(sale_or_rent)}
+                                    ${contract()}
                             </section>
                         </section>
     
                     </section>
                 </section>
                 <section class="row" style="height: 100px; display: flex; align-items: center;">
+                    <audio id="Audio">
+                     <source src="audio.mp3" type="audio/mp3">
+                    </audio>
                     <input type="submit" onclick="gatherFormData(event);" value="Put on ${sale_or_rent}" class="btn btn-primary sell">
                 </section>
             </form>
@@ -226,6 +246,12 @@ var houseContent = `
         </section>
     </section>
     <script>
+        $(document).ready(function() {
+            $(".btn").click(function() {
+            var audio = $("#Audio")[0];
+                audio.play();
+            });
+        });
         document.getElementById('imageUpload').addEventListener('change', handleFileSelect);
         setupSlider('slider1' , 'floorValue');
         setupSlider('slider2', 'bedroomValue');
@@ -339,6 +365,7 @@ function gatherFormData(event) {
         let formData={};
         let direction ='';
        const jsonFileName = sale_or_rent === 'sale' ? 'buy.json' : 'rent.json';
+       const contractCheck = document.getElementById('contract').checked;
        if(sale_or_rent === "rent"){
         direction = "rent"
         formData = {
@@ -377,6 +404,11 @@ function gatherFormData(event) {
             Neg:neg
             };
        }
+       function contractc(contractCheck){
+        if(contractCheck){
+            window.open('./Residential-Real-Estate-Purchase-Agreement.pdf', '_blank');
+        }
+       }
         fetch(`http://localhost:3000/`, {
                 method: 'POST',
                 headers: {
@@ -387,8 +419,14 @@ function gatherFormData(event) {
             })
             .then(response => response.json())
             .then(data => {
+                const dateToday = new Date();
+                alert("You put a house for sale on " + dateToday.toString() + ".");
                 console.log('Success:', data);
-                window.location.href = `./${direction}.html`;
+                setTimeout(contractc(contractCheck), 1000);
+                
+                setTimeout(window.location.href = `./${direction}.html`, 2000);
+                
+                
             })
             .catch((error) => {
                 console.error('Error:', error);
