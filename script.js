@@ -2,12 +2,12 @@ $("#shbutton").click(function () {
   window.location.href = "registration.html";
 });
 
-
+/*
 $(document).ready(function() {
  $(".btn1").mousedown(function() {
    alert("thank you for contacting us");
  });
-});
+});*/
 
 
 function checkEmpty(gName, gEmail, gMessage) {
@@ -32,12 +32,19 @@ function checkEmpty(gName, gEmail, gMessage) {
   }
 }
 
-function greet(name) {
-  alert(`Thank you for contacting us ${name}`);
-}
-function callback1(callback) {
-  const name = document.getElementById('nameForm').value;
-  callback(name)
+
+function validateForm() {
+  var name = document.getElementById('name').value;
+  var email = document.getElementById('email').value;
+  var email = document.getElementById('message').value;
+
+  if (name == "" || email == "" || message == "") {
+      alert("Please enter your name and email and message.");
+      return false; 
+  }
+
+ 
+  return true;
 }
 
 
