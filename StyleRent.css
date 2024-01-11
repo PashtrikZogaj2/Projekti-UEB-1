@@ -224,18 +224,25 @@ body{
     border-bottom-right-radius: 20px;
     border-top-right-radius: 20px;
   }
+mark{
+    background-color: rgba(255, 0, 0, 0.568);
+}
 .search-button i {
     color: black;
   }
-.search, .cart {
+.search {
     justify-self: center;
+  }
+.cart {
+    justify-self: center;
+    width:120%;
   }
   .cart-sect {
     list-style: none;
     margin-top: 8px;
   }
   .cart-sect li {
-  float: left;
+  float: right;
     padding: 0px 6px;
     
   }
@@ -681,3 +688,70 @@ background-color: #ffffff20;
         -webkit-transform: rotate(180deg);
     }
     
+    /* Add this CSS */
+.detailed-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.detailed-section .col-6 {
+    width: 48%; /* Adjust as needed */
+}
+
+.detailed-section .col-6 img {
+    width: 100%;
+}
+/* Add this CSS */
+.detailed-section .col-6.title-holder {
+    width: 100%; /* Make title take the full width */
+}
+
+.detailed-section .col-6.price-holder {
+    display: none; /* Hide the price column, adjust as needed */
+}
+
+.detailed-section .row {
+    height: 100%;
+    width: 100%; /* Make the row take full height */
+}
+
+.detailed-section .row .col-4.slider-holder {
+    width: 100%; /* Make slider-holder take the full width */
+}
+
+.detailed-section .col-8.col-custom {
+    width: 100%; /* Make col-custom take the full width */
+}
+/* Add this CSS */
+.detailed-section .row {
+    display: flex;
+}
+
+.detailed-section .col-6.title-holder {
+    width: 100%;
+    order: 2; /* Move title to the second position (right side) */
+}
+
+.detailed-section .col-4.slider-holder {
+    order: 1; /* Move slider-holder to the first position (left side) */
+}
+.row{
+    width: 100%;
+}
+/* Add this CSS */
+.detailed-section .row {
+    display: flex;
+    flex-direction: row-reverse; /* Reverse the order of columns */
+}
+
+.detailed-section .col {
+    width: 50%; /* Each column takes 50% of the row */
+    box-sizing: border-box;
+    padding: 0 20px;
+}
+
+.detailed-section .col-4.slider-holder,
+.detailed-section .col-custom {
+    order: 1; /* Move these columns to the first position (right side) */
+}
