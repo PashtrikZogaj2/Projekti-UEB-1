@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css" integrity="sha384-BY+fdrpOd3gfeRvTSMT+VUZmA728cfF9Z2G42xpaRkUGu2i3DyzpTURDo5A6CaLK" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 </head>
 	<title>About</title>
     <style>
@@ -36,7 +36,13 @@
   text-align: center;
   color: #fff;
   font-size: 6vw;
+ 
 }
+#div{
+display: flex;
+width: 100%;
+}
+
     </style>
 </head>
 <body>
@@ -63,9 +69,9 @@
             <div class="video-text">Home means everything</div>
         </div>
         <div class="container">
-        <center><h1 style="font-size: 35px; color: #330909b0;">About realtor.com®</h1></center>
+        <center><h1 class ="hSlide" style="font-size: 35px; color: #330909b0;"><img src="shigjetaPosht.png" width = "30px" height = "30px" style="opacity:0.6"> About realtor.com®</h1></center>
         </div>
-        <p style="margin-left: 15%; margin-top: 2%; font-size: 25px; margin-right: 15%; color: #290b0bc5;">
+        <p class = "pSlide" style="margin-left: 15%; margin-top: 2%; font-size: 25px; margin-right: 15%; color: #290b0bc5; display:none;">
             For decades, realtor.com® has been the trusted ally for countless home seekers on their journey to discover
             the perfect residence. Managed by Move, Inc. 
             realtor.com® remains the go-to platform for an extensive array
@@ -129,13 +135,14 @@
             <img src="books.png" alt="books" style="margin-left: 12%; height: 430px;width: 430px; margin-bottom: 1%;">
         </div>
         <div style="margin-top: -10%;">
-             <h2 style="font-size: 30px; margin-left: 2%; color: rgb(212, 87, 87);">  We’re Here to Help</h2>
-             <p style="margin-left: 2%; font-size: 18px;">Do you have questions about our Real Estate Marketing Success Systems? <br> Need advice on generating 
+             <h2 style="font-size: 30px; margin-left: 2%; color: rgb(212, 87, 87);"> We’re Here to Help</h2>
+             <p style="margin-left: 2%; font-size: 18px; color:#000">Do you have questions about our Real Estate Marketing Success Systems? <br> Need advice on generating 
              and converting more leads and referrals? <br> Want to learn how to boost your income and success? <br>
              Contact us for real estate marketing advice.
              </p>
-            </div>
-    </div>
+            </div><br>
+    
+    
     <footer class="section-p1" style="display: flex;">
         <div class="col">
             <img src="Realtor-com-Logo.svg" width="150" height="90" alt="">
@@ -189,6 +196,7 @@
       </footer>
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="aboutScript.js"></script>
+    
 </body>
 </html>
 

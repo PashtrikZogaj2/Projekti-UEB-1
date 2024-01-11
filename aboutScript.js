@@ -67,3 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+  $(".hSlide").click(function(){
+    $(".pSlide").slideToggle();
+});
+
