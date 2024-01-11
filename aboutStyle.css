@@ -94,65 +94,65 @@ body {
 
 /* Headeri*/
 #header{
-display: flex;
-align-items: center;
-justify-content: space-between;
-padding: 10px 80px;
-background: #e3e6f3;
-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
-z-index: 999;
-position: sticky;
-top: 0;
-left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 80px;
+    background: #005163;
+    z-index: 999;
+    position: sticky;
+    top: 0;
+    height: 80px;
+    left: 0;
+    box-shadow: 0 2px 2px #005163;
 }
 
 #navbar{
-display: flex;
-align-items: center;
-justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #navbar li{
-list-style: none;
-padding: 0 20px;
-position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    padding: 1px 10px;
+    position: relative;
+    margin: 8px;
+    border: 1px solid #091a2b;
+    border-radius: 14px;
+    box-shadow: 0 0 8px #091a2b;
+    width:90px;
+    transition: all 0.3s ease;
 }
 
 #navbar li a{
-text-decoration: none;
-font-size: 100%;
-font-size: 18px;
-font-weight: 600;
-color: #1a1a1a;
-transition: 0.3s ease;
+    text-decoration: none;
+    font-size: 100%;
+    font-size: 18px;
+    font-weight: 600;
+    color: #c8e5ff;
+    transition: 0.3s ease;
 }
-
+#navbar li:hover, #navbar li:has(a.active) {
+    border-bottom: 3px solid #091a2bcc;
+    border-top: 3px solid #091a2bcc;
+    border-right: 2px solid #091a2bcc;
+    border-left: 2px solid #091a2bcc;
+    transition: 0.1s;
+    margin:12px;
+    transform: scale(1.2);}
 #navbar li a:hover,
 #navbar li a.active {
-color: #088178;
-
+    transition:all 0.2s ease-in-out;
 }
-
-#navbar li a.active::after,
-#navbar li a:hover::after {
-content: "";
-width: 30%;
-height: 2px;
-background: #088178;
-position: absolute;
-bottom: -4px;
-left: 20px;
-
-}
-
-
-
-
-
 footer {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    background-color: #005163;
 }
 
 footer .col{
@@ -196,7 +196,7 @@ footer .follow {
     cursor: pointer;
 }
 
-footer .install .row img {}
+
 
 footer .install img {
     margin: 10px 0 15px 0;
@@ -211,6 +211,8 @@ footer .copyright {
     width: 100%;
     text-align: center;
 }
+
+
 .up{
     background-video:transparent;
 
