@@ -1,4 +1,4 @@
-<!--<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,7 +7,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    
 </head>
 <body>
       
@@ -19,16 +19,15 @@
             <h3>Send us a message</h3>
             <form>
                 <div class="form-group">
-                <input type="text" name="name" placeholder="Name">
+                <input type="text" name="name"  id="name" placeholder="Your Name">
                 </div>
                 <div class="form-group">
-                    <input type="email" name="email" placeholder="Email">
+                    <input type="email" id="email" name="email" placeholder="Your Email">
                 </div>
                 <div class="form-group">
-                <textarea name="message" placeholder="Message" ></textarea>
+                <textarea name="message" id="message" placeholder="Your Message" ></textarea>
                 </div>
-                <button type="submit" 
-                onclick="checkForNumbers();checkEmpty(document.getElementById('nameform'),document.getElementById('emailform'),document.getElementById('messageform'))">Send Message</button>
+                <button type="submit" id="submit">Send Message</button>
             </form>
         </div>
         <div class="contact-info">
@@ -47,8 +46,24 @@
 
     </div>
 
-    </section>
+        <div>
+            <button id="buuttoon" onclick="ToggleVisibility()">Vemendje</button>
+    <p id="myParagraph"><i>Përshëndetje të nderuar vizitorë dhe klientë të webfaqes sonë të patundshmërive!
 
+        Ne jemi nje agjension i pasurive te paluajtshme - një destinacion i dedikuar për eksplorimin dhe zbulimin e shtëpive të ëndrrave dhe pasurive të patundshme. Në emër të ekipit tonë të pasionuar, ju mirëpresim me zemër në botën e pasurive të patundshme, një udhëtim ku ëndrrat bëhen realitet.
+        
+        Ne e kuptojmë që kërkesat dhe nevojat tuaja janë të veçanta, dhe synimi ynë është të ofrojmë një përvojë të personalizuar dhe të përshtatshme për ju. Për ne, kjo nuk është vetëm një blerje ose shitje e pronave, por një marrëdhënie afatgjatë ku jemi këtu për t'ju mbështetur në çdo hap të rrugës.
+        
+        Në faqen tonë të internetit, do të gjeni një gamë të gjerë të pronave të disponueshme, nga shtëpitë e reja, apartamentet luksoze, deri te investimet në pronat komerciale. Kemi përzgjedhur me kujdes çdo pronë për të siguruar që ofrojmë cilësi dhe vlerë të jashtëzakonshme për klientët tanë të nderuar.
+           
+ </i></p>
+        </div>
+
+
+     
+
+    </section>
+    <script src="script.js"></script>
 
 </body>
-</html>-->
+</html>

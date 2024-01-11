@@ -128,3 +128,12 @@ form .gender-details .category {
  form .button input:hover{
     background: linear-gradient(135deg, #71b7e6,#9b59b6);
  }
+
+ #thanknote{
+    display: none;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            color: black;
+            font-size: 100%;
+            text-align: center;
+ }
