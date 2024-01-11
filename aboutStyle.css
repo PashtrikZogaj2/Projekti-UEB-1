@@ -213,6 +213,7 @@ footer .copyright {
 }
 
 
+
 .up{
     background-video:transparent;
 
@@ -258,5 +259,9 @@ footer .copyright {
 
 .next {
   right: 0;
+}
+#playButton {
+    text-align:center;
+    font-size:30px
 }
   

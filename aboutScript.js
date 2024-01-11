@@ -47,5 +47,23 @@ function prevSlide() {
 
 showSlide(currentSlide);
 
+document.addEventListener("DOMContentLoaded", function () {
+    const playButton = document.getElementById("playButton");
+    const audioElement = document.getElementById("audioElement");
 
-  
+    playButton.addEventListener("click", function () {
+        if (audioElement.paused) {
+            audioElement.play();
+            playButton.innerHTML = `Pause Audio <img src = "audiPause.png" width= "30px" height = "30px">`;
+        } else {
+            audioElement.pause();
+            audioElement.currentTime = 0; // Reset audio to the beginning
+            playButton.innerHTML = `Play history <img src = "audioPlay.png" width= "30px" height = "30px">`;
+        }
+    });
+
+    audioElement.addEventListener("ended", function () {
+        playButton.innerHTML = "Play Audio";
+    });
+});
+
