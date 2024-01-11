@@ -6,6 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
       <link rel="stylesheet" href="StyleBuy.css">
+      <style>
+        .w3-display-right{
+            /* position: absolute;
+            right: 0px; */
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            border-radius: 100%;
+            background-color: #b2cad0;
+            background-image: url(arrow.png);
+            background-size: cover;
+            justify-self: flex-end;
+        }
+        .w3-display-left{
+            /* position: absolute;
+            left: 0px; */
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            border-radius: 100%;
+            background-color: #b2cad0;
+            background-image: url(arrow.png);
+            background-size: cover;
+            transition: rotate(180deg);
+            -webkit-transform: rotate(180deg);
+        }</style>
    </head>
    <body>
     
@@ -14,11 +42,12 @@
       <div>
           <ul id="navbar">
           <li><a  href="index.html">Home</a></li>
-          <li><a class="active" href="Buy.html">Buy</a></li>
+          <li><a  href="Buy.html">Buy</a></li>
+          <li><a class="active" href="rent.html">Rent</a></li>
           <li><a href="Sell.html">Sell</a></li>
           <li><a href="About.html">About</a></li>
           <li><a href="Contact.html">Contact</a></li>
-          <li><a href="Rent.html">Rent</a></li>
+         
           
       </ul>
       </div>
@@ -42,37 +71,33 @@
       </div>
     </div>
     <div class="width-100 search-panel">
-      <div class="container">
-        <div class="width-20">
-          <img src="" class="logo">
-        </div>
-        <div class="width-50">
+      <div class="container spanel">
+        <div class="width-100 search">
           <input class="search-textbox" type="text" placeholder="Search for homes/apartments address"  aria-hidden="true"></i>
           <button class="search-button">
             <i class="fa fa-search" aria-hidden="true"></i>
         
           </button>
-          <div class="width-30">
-            <ul class="cart-sect">
-              <li>
-                <i class="fa fa-heart-o" aria-hidden="true"></i>
-                <a class="head1mr" href="#">Wishlist</a>
-              </li>
-              <li>
-                <i class="fa fa-user-circle-o" aria-hidden="true"></i>
-                <a href="#">Login & Signup</a>
-              </li>
-              <li>
-                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                <a href="#">Cart (0)</a>
-              </li>
-            </ul>
-          </div>
+          
+        </div>
+        <div class="width-100 cart">
+          <ul class="cart-sect">
+            <li>
+              <i class="fa fa-heart-o" aria-hidden="true"></i>
+              <a class="head1mr" href="#">Wishlist</a>
+            </li>
+            <li>
+              <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+              <a href="#">Login & Signup</a>
+            </li>
+            <li>
+              <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+              <a href="#">Cart (0)</a>
+            </li>
+          </ul>
         </div>
       </div>
         </div>
-  </div>
-  </div>
       
   
         
@@ -93,7 +118,7 @@
           <i class="fa fa-star" aria-hidden="true"></i>
         </div>
         <div class="width-80 featured-content margin-top-8">
-          <h4>Your home is secure with us</h4>
+          <h4><mark>Your home is secure with us</mark></h4>
           <p>Latest 2FA and Buyer/Seller protection, security guaranteed</p>
         </div>
       </div>
@@ -106,7 +131,7 @@
 
           </div>
           <div class="width-80 featured-content margin-top-8">
-            <h4>-ONLINE SUPPORT 24/7</h4>
+            <h4><mark>-ONLINE SUPPORT 24/7</mark></h4>
             <p>Our agents as well as our local workers respond to calls 24h a day</p>
           </div>
         </div>
@@ -118,7 +143,7 @@
           <i class="fa fa-life-ring" aria-hidden="true"></i>
         </div>
         <div class="width-80 featured-content margin-top-8">
-          <h4>TOUR AND BUY</h4>
+          <h4><mark>TOUR AND BUY</mark></h4>
           <p>Tour your favorite home or apartment with one of our agents</p>
         </div>
       </div>
@@ -129,7 +154,7 @@
           <i class="fa fa-star" aria-hidden="true"></i>
         </div>
         <div class="width-80 featured-content margin-top-8">
-          <h4>-CALL AND HAGGLE</h4>
+          <h4><mark>-CALL AND HAGGLE</mark></h4>
           <p>Home/Apartment Owners are all open to calls for price negotiation</p>
         </div>
       </div>
@@ -140,7 +165,7 @@
           <i class="fa fa-credit-card" aria-hidden="true"></i>
         </div>
         <div class="width-80 featured-content margin-top-8">
-          <h4>-SECURE PAYMENT</h4>
+          <h4><mark>-SECURE PAYMENT</mark></h4>
           <p>The safest in the business,we hold a 100% transaction success rate</p>
         </div>
       </div>
@@ -202,5 +227,12 @@
 
 
   <script src="scriptbuy.js"></script>
+  <script>
+    document.getElementById('imageUpload').addEventListener('change', handleFileSelect);
+    setupSlider('slider1' , 'floorValue');
+    setupSlider('slider2', 'bedroomValue');
+    </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  
    </body>
 </html>
