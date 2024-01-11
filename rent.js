@@ -55,12 +55,11 @@ document.addEventListener("DOMContentLoaded", function () {
         const imgDiv = document.createElement("div");
         imgDiv.className = "product-img-center";
 
-        house.images.forEach(imageSrc => {
-            const img = document.createElement("img");
-            img.className = "product-img";
-            img.src = imageSrc;
-            imgDiv.appendChild(img);
-        });
+        
+        const img = document.createElement("img");
+        img.className = "product-img";
+        img.src = house.images[0];
+        imgDiv.appendChild(img);
 
         innerDiv.appendChild(imgDiv);
 
@@ -105,43 +104,44 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
     
-    
+  
+
+    let slideIndex = 1;
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function showSlides(n) {
+        const slides = document.getElementsByClassName("mySlides");
+        if (n > slides.length) slideIndex = 1;
+        if (n < 1) slideIndex = slides.length;
+        for (let i = 0; i < slides.length; i++) slides[i].style.display = "none";
+        slides[slideIndex - 1].style.display = "block";
+    }
 
     function displayDetailedInfo(houseId) {
         const house = housesData.find(item => item.id === houseId);
         const detailedSection = createDetailedSection(house);
         container.appendChild(detailedSection);
         searchInput.value = "";
-        let slideIndex = 1;
 
-        function plusSlides(n) {
-            showSlides(slideIndex += n);
-        }
-
-        function showSlides(n) {
-            const slides = document.getElementsByClassName("mySlides");
-            if (n > slides.length) slideIndex = 1;
-            if (n < 1) slideIndex = slides.length;
-            for (let i = 0; i < slides.length; i++) slides[i].style.display = "none";
-            slides[slideIndex - 1].style.display = "block";
-        }
-
-        showSlides(slideIndex);
-
+        showSlides(slideIndex); 
 
         document.addEventListener("click", closeDetailedSection);
     }
 
     function createDetailedSection(house) {
-        const col1 = createElementWithText("section", "col-6", "");
+        const col1 = createElementWithText("section", "col-4", "");
         const row = createElementWithText("section", "row", "");
-        const col2 = createElementWithText("section", "col-4", "");
+        const col2 = createElementWithText("section", "col-6", "");
         const detailedSection = createElementWithText("section", "container-fluid detailed-section", "");
         const row1 = createElementWithText("section", "row", "");
         row1.style.height = "100%";
-        const imageColumn = createElementWithText("section", "col image-holder", "");
+        const imageColumn = createElementWithText("section", "col-1 image-holder", "");
+        
         const imageSlider = createElementWithText("div", "w3-content w3-display-container", "");
-
+        imageSlider.appendChild(createNavigationButton("a", "w3-btn-floating w3-display-left", "", () => plusSlides(-1)));
         house.images.forEach((imageSrc, index) => {
             const img = createElementWithText("img", "mySlides", "");
             img.src = imageSrc;
@@ -149,23 +149,26 @@ document.addEventListener("DOMContentLoaded", function () {
             imageSlider.appendChild(img);
         });
 
-        imageSlider.appendChild(createNavigationButton("a", "w3-btn-floating w3-display-left", "&lt;", () => plusSlides(-1)));
-        imageSlider.appendChild(createNavigationButton("a", "w3-btn-floating w3-display-right", "&gt;", () => plusSlides(1)));
+       
+        imageSlider.appendChild(createNavigationButton("a", "w3-btn-floating w3-display-right", "", () => plusSlides(1)));
 
         imageColumn.appendChild(imageSlider);
         row1.appendChild(imageColumn);
 
-        const detailsColumn = createElementWithText("section", "col", "");
+        const detailsColumn = createElementWithText("section", "col-1", "");
         detailsColumn.appendChild(createTitlePriceRow(house));
         detailsColumn.appendChild(createDescriptionRow(house));
+        const infoCol = createElementWithText("section", "col-1", "");
 
         const infoRow = createElementWithText("section", "row", "");
         infoRow.style.height = "100%";
-        infoRow.appendChild(createSliderHolderColumn(house));
-        infoRow.appendChild(createCustomColumn(house));
-
+        infoCol.appendChild(detailsColumn);
+        infoCol.appendChild(createSliderHolderColumn(house));
+        infoCol.appendChild(createCustomColumn(house));
+        
+        infoRow.appendChild(infoCol)
         row1.appendChild(imageColumn);
-        row1.appendChild(detailsColumn);
+        
         col1.appendChild(row1);
         col2.appendChild(infoRow);
         row.appendChild(col1);
@@ -217,21 +220,21 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function createDescriptionColumn(house) {
-        const descriptionColumn = createElementWithText("section", "col", "");
+        const descriptionColumn = createElementWithText("section", "col-1", "");
         descriptionColumn.appendChild(createElementWithText("label", "", "Description:"));
         descriptionColumn.appendChild(createElementWithText("p", "description", house.description));
         return descriptionColumn;
     }
 
     function createSliderHolderColumn(house) {
-        const sliderHolderColumn = createElementWithText("section", "col slider-holder", "");
+        const sliderHolderColumn = createElementWithText("section", "col-1 slider-holder", "");
         sliderHolderColumn.appendChild(createElementWithText("p", "", `On the ${house.floorValue} floor.`));
         sliderHolderColumn.appendChild(createElementWithText("p", "", `Number of bedrooms: ${house.bedroomValue}`));
         return sliderHolderColumn;
     }
 
     function createCustomColumn(house) {
-        const customColumn = createElementWithText("section", "col col-custom", "");
+        const customColumn = createElementWithText("section", "col-1 col-custom", "");
         customColumn.appendChild(createInfoRow("Address:", house.address, "address"));
         customColumn.appendChild(createInfoRow("Owner:", house.owner, "owner"));
         customColumn.appendChild(createInfoRow("Contact number:", house.phone, "phone"));
@@ -240,10 +243,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function createInfoRow(labelText, valueText, id) {
         const infoRow = createElementWithText("section", "row", "");
-        const infoColumn = createElementWithText("section", "col info-holder", "");
+        const infoColumn = createElementWithText("section", "col-1 info-holder", "");
         infoColumn.appendChild(createElementWithText("label", "", labelText));
         infoColumn.appendChild(createElementWithText("p", id, valueText));
         infoRow.appendChild(infoColumn);
         return infoRow;
     }
+    
 });

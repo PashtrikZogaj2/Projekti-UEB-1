@@ -1,7 +1,7 @@
 [
     {
         "id": "1",
-        "images": ["./House1.jpg"],
+        "images": ["./House1.jpg", "./livingroom1.png", "./bedroom1.jpg" ],
         "title": "Luxury Apartment",
         "address": "New York",
         "rating": 5,
@@ -15,7 +15,7 @@
     },
     {
         "id": "2",
-        "images": ["./House2.jpg"],
+        "images": ["./House2.jpg", "./livingroom2.jpeg", "./bedroom11.jpeg"],
         "title": "Spacious Loft",
         "address": "Chicago",
         "rating": 4,
@@ -29,7 +29,7 @@
     },
     {
         "id": "3",
-        "images": ["./House3.jpg"],
+        "images": ["./House3.jpg", "./livingroom3.jpg", "./bedroom3.jpeg"],
         "title": "Modern Penthouse",
         "address": "Miami",
         "rating": 5,
@@ -43,7 +43,7 @@
     },
     {
         "id": "4",
-        "images": ["./House4.jpg"],
+        "images": ["./House4.jpg", "./livingroom4.jpeg", "./bedroom4.jpg"],
         "title": "Hillside Retreat",
         "address": "Arizona",
         "rating": 5,
@@ -57,7 +57,7 @@
     },
     {
         "id": "5",
-        "images": ["./House5.jpg"],
+        "images": ["./House5.jpg", "./livingroom5.jpg", "./bedroom5.jpeg"],
         "title": "Contemporary Villa",
         "address": "California",
         "rating": 4,
@@ -71,7 +71,7 @@
     },
     {
         "id": "6",
-        "images": ["./House6.jpg"],
+        "images": ["./House6.jpg", "./livingroom6.jpg", "./bedroom6.jpeg"],
         "title": "Luxury Residence",
         "address": "California",
         "rating": 4,
@@ -85,7 +85,7 @@
     },
     {
         "id": "7",
-        "images": ["./House7.jpg"],
+        "images": ["./House7.jpg", "./livingroom7.jpeg", "./bedroom7.jpeg"],
         "title": "Seaside Oasis",
         "address": "Florida",
         "rating": 5,
@@ -99,7 +99,7 @@
     },
     {
         "id": "8",
-        "images": ["./House8.jpg"],
+        "images": ["./House8.jpg", "./livingroom8.jpeg", "./bedroom8.avif"],
         "title": "Desert Haven",
         "address": "Arizona",
         "rating": 5,
@@ -113,7 +113,7 @@
     },
     {
         "id": "9",
-        "images": ["./House9.jpg"],
+        "images": ["./House9.jpg", "./livingroom9.jpg", "./bedroom9.jpeg"],
         "title": "Mountain Cabin",
         "address": "Colorado",
         "rating": 4,
@@ -127,7 +127,7 @@
     },
     {
         "id": "10",
-        "images": ["./House10.jpg"],
+        "images": ["./House10.jpg", "./livingroom10.jpg", "./bedroom10.jpeg"],
         "title": "Urban Loft",
         "address": "Colorado",
         "rating": 4,
@@ -141,7 +141,7 @@
     },
     {
         "id": "11",
-        "images": ["./House11.jpg"],
+        "images": ["./House11.jpg", "./livingroom2.jpeg", "./bedroom11.jpeg"],
         "title": "Ocean View Apartment",
         "address": "Florida",
         "rating": 5,
@@ -155,7 +155,7 @@
     },
     {
         "id": "12",
-        "images": ["./House12.jpg"],
+        "images": ["./House12.jpg", "./livingroom12.webp", "./bedroom12.jpeg"],
         "title": "Luxury Penthouse",
         "address": "Florida",
         "rating": 5,

@@ -537,15 +537,14 @@ background-color: #ffffff20;
         box-sizing: border-box;
         z-index: 1000;
         background-color: #ffffff;
-        position: fixed; /* Sit on top of the page content */
-        display: block;/* Hidden by default */
+        position: fixed; 
+        display: block;
         width:86%;
         top: 120px;
         left: 7%;
         bottom: 20px;
-       /* Black background with opacity */
-        z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
-        cursor: pointer; /* Add a pointer on hover */
+        z-index: 2; 
+        cursor: pointer; 
     }
 
 
@@ -586,8 +585,8 @@ background-color: #ffffff20;
         display: grid;
         grid-template-rows: 100%;
         grid-template-columns: 100%;
-        align-items: center;
-        width: 50%;
+        align-items: flex-start;
+        align-self: center;
     }
     
     .image-holder img {
@@ -598,6 +597,7 @@ background-color: #ffffff20;
         border-radius: 15px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         box-sizing: border-box;
+        align-self: center;
     }
     
     
@@ -606,9 +606,10 @@ background-color: #ffffff20;
     }
     .info-holder {
         display:grid;
-        grid-template-columns: 20% 80%;
+        grid-template-columns: 50% 50%;
         align-items: center;
         justify-items: left;
+        width:100%
     }
     .title-holder {
         display: grid;
@@ -630,8 +631,10 @@ background-color: #ffffff20;
     .w3-badge {height:13px;width:13px;padding:0}
     .w3-display-container{
         max-width:800px;
-        display: flex;
+        display: grid;
+        grid-template-columns: 7% 86% 7%;
         align-items: center;
+        padding: 20px;
     }
     .w3-display-bottommiddle{
         width:100%;
@@ -663,95 +666,73 @@ background-color: #ffffff20;
         padding-top: 7px;
     }
     
-    .w3-right{
-        right: 0px;
-        width: 40px;
-        height: 40px;
-        display: flex;
-        align-items: center;
-        border-radius: 100%;
-        background-color: #6fa8dd;
-        background-image: url(arrow.png);
-        background-size: cover;
-    }
-    .w3-left{
-        left: 0px;
-        width: 40px;
-        height: 40px;
-        display: flex;
-        align-items: center;
-        border-radius: 100%;
-        background-color: #6fa8dd;
-        background-image: url(arrow.png);
-        background-size: cover;
-        transition: rotate(180deg);
-        -webkit-transform: rotate(180deg);
-    }
+   
     
-    /* Add this CSS */
+    
 .detailed-section {
+    padding-top: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .detailed-section .col-6 {
-    width: 48%; /* Adjust as needed */
+    width: 48%; 
 }
 
 .detailed-section .col-6 img {
     width: 100%;
 }
-/* Add this CSS */
+
 .detailed-section .col-6.title-holder {
-    width: 100%; /* Make title take the full width */
+    width: 100%; 
 }
 
 .detailed-section .col-6.price-holder {
-    display: none; /* Hide the price column, adjust as needed */
+    display: none;
 }
 
 .detailed-section .row {
     height: 100%;
-    width: 100%; /* Make the row take full height */
+    width: 100%; 
 }
 
 .detailed-section .row .col-4.slider-holder {
-    width: 100%; /* Make slider-holder take the full width */
+    width: 100%; 
 }
 
 .detailed-section .col-8.col-custom {
-    width: 100%; /* Make col-custom take the full width */
+    width: 100%; 
 }
-/* Add this CSS */
+
 .detailed-section .row {
     display: flex;
 }
 
 .detailed-section .col-6.title-holder {
     width: 100%;
-    order: 2; /* Move title to the second position (right side) */
+    order: 2;
 }
 
 .detailed-section .col-4.slider-holder {
-    order: 1; /* Move slider-holder to the first position (left side) */
+    order: 1;
 }
 .row{
     width: 100%;
 }
-/* Add this CSS */
+
 .detailed-section .row {
     display: flex;
-    flex-direction: row-reverse; /* Reverse the order of columns */
+    flex-direction: row; 
 }
 
 .detailed-section .col {
-    width: 50%; /* Each column takes 50% of the row */
+    width: 50%; 
     box-sizing: border-box;
-    padding: 0 20px;
+    padding: 0 20px 0 0;
 }
 
 .detailed-section .col-4.slider-holder,
 .detailed-section .col-custom {
-    order: 1; /* Move these columns to the first position (right side) */
+    order: 1; 
 }
