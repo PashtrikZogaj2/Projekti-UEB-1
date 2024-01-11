@@ -97,13 +97,35 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function updateDisplayedItems(query, searchType) {
-        container.querySelectorAll(".product-section").forEach(item => {
-            const productAddress = item.querySelector(".product-info .product-address").innerText.toLowerCase();
-            const itemType = item.className.split(" ").find(className => className.includes("item")) || "all-item";
-            item.style.display = (productAddress.includes(query) || query === "") && (itemType === `${selectedType}-item` || selectedType === "all") ? "block" : "none";
+        const noResultsWarning = document.getElementById("no-results-warning");
+        
+        const filteredItems = housesData.filter(house => {
+            const productAddress = house.address.toLowerCase();
+            const itemType = `${house.type}-item` || "all-item";
+            return (productAddress.includes(query) || query === "") && (itemType === `${selectedType}-item` || selectedType === "all");
+        });
+    
+        container.innerHTML = ""; // Clear the container before displaying filtered items
+    
+        if (filteredItems.length > 0) {
+            displayFilteredItems(filteredItems);
+            if (noResultsWarning) {
+                container.removeChild(noResultsWarning);
+            }
+        } else {
+            if (!noResultsWarning) {
+                const warning = createElementWithText("p", "no-results-warning", "No results found.");
+                warning.id = "no-results-warning";
+                container.appendChild(warning);
+            }
+        }
+    }
+    function displayFilteredItems(filteredItems) {
+        filteredItems.forEach(house => {
+            const houseDiv = createHouseDiv(house);
+            container.appendChild(houseDiv);
         });
     }
-    
   
 
     let slideIndex = 1;
