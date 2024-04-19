@@ -36,11 +36,11 @@ $titleCaseFeatures = ucwords($featureList);
 echo "Features (Title Case): $titleCaseFeatures<br>";
 
 // Perdorimi i konstantave
-define("COMPANY_EMAIL", "info@yourestate.com");
+define("COMPANY_EMAIL", "info-realtor@realestate.com");
 echo "<p style='margin-top: 20px;'>Constant: Company Email Address</p>";
 echo "Company Email: " . COMPANY_EMAIL . "<br>";
 
-// Operatoret matematik per pagese te nje Real Estate Property!
+// Operatoret matematik per llogaritje te normes se komisionit te nje Real Estate Property!
 echo "<p style='margin-top: 20px;'>Operators: Calculate Commission</p>";
 $commissionRate = 0.05;
 $salePrice = 1000000;
