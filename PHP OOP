@@ -57,3 +57,5 @@ class Property {
 $property1 = new Property("Adem Jashari", 240000, "Shtepi");
         $property2 = new Property("Rruga B", 320000, "Apartament");
 
+
+
