@@ -1,0 +1,59 @@
+//Në kontekstin e një website për real estate, mund të krijojmë klasa për entitetet kryesore si pronat, agjentët, klientët, etj., dhe të shtojmë metoda për të manipuluar dhe shfaqur të dhënat.
+
+ //  Definimi dhe përdorimi i klasave në PHP – me veti dhe metoda
+// Definimi i klases  për të përfaqësuar një pronë
+class Property {
+    // Atributet me modifikatorët private,public dhe protected
+    public  $address;
+    private $price;
+    protected $type;
+
+    //  Përdorimi i konstruktorit te klases Property
+    // Konstruktori
+    public function __construct($address, $price, $type) {
+        $this->address = $address;
+        $this->price = $price;
+        $this->type = $type;
+    }
+
+
+    // Funksionet Get dhe Set për atributin address
+    public function getAddress() {
+        return $this->address;
+    }
+
+    public function setAddress($address) {
+        $this->address = $address;
+    }
+
+    // Funksionet Get dhe Set për atributin price
+    public function getPrice() {
+        return $this->price;
+    }
+
+    public function setPrice($price) {
+        $this->price = $price;
+    }
+
+    // Funksionet Get dhe Set për atributin type
+    public function getType() {
+        return $this->type;
+    }
+
+    public function setType($type) {
+        $this->type = $type;
+    }
+
+     // Definimi i metodave te klases
+    // Metoda për të shfaqur detajet e pronës
+    public function displayDetails() {
+        return "Address: {$this->address}, Price: {$this->price}, Type: {$this->type}";
+    }
+}
+
+
+
+// Krijimi i disa instancave të klasave dhe shfaqja e  detajeve
+$property1 = new Property("Adem Jashari", 240000, "Shtepi");
+        $property2 = new Property("Rruga B", 320000, "Apartament");
+
