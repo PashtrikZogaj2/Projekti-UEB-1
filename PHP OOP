@@ -1,61 +1,93 @@
-//Në kontekstin e një website për real estate, mund të krijojmë klasa për entitetet kryesore si pronat, agjentët, klientët, etj., dhe të shtojmë metoda për të manipuluar dhe shfaqur të dhënat.
 
- //  Definimi dhe përdorimi i klasave në PHP – me veti dhe metoda
-// Definimi i klases  për të përfaqësuar një pronë
-class Property {
-    // Atributet me modifikatorët private,public dhe protected
-    public  $address;
+<?php
+
+//Përcaktimi  një klase për pronat e paluajtshme
+class RealEstateProperty {
+    // Definimi i prones 
+    private $propertyType;
+    private $location;
     private $price;
-    protected $type;
 
-    //  Përdorimi i konstruktorit te klases Property
     // Konstruktori
-    public function __construct($address, $price, $type) {
-        $this->address = $address;
+    public function __construct($propertyType, $location, $price) {
+        $this->propertyType = $propertyType;
+        $this->location = $location;
         $this->price = $price;
-        $this->type = $type;
     }
 
-
-    // Funksionet Get dhe Set për atributin address
-    public function getAddress() {
-        return $this->address;
+    // Destruktori
+    public function __destruct() {
+        // Pastrimi i kodit nese eshte e nevojshme
     }
 
-    public function setAddress($address) {
-        $this->address = $address;
+    // Getter per llojin e prones 
+    public function getPropertyType() {
+        return $this->propertyType;
     }
 
-    // Funksionet Get dhe Set për atributin price
+    // Setter per llojin e prones 
+    public function setPropertyType($propertyType) {
+        $this->propertyType = $propertyType;
+    }
+
+    // Getter per lokacion
+    public function getLocation() {
+        return $this->location;
+    }
+
+    // Setter per lokacion
+    public function setLocation($location) {
+        $this->location = $location;
+    }
+
+    // Getter per qmimin
     public function getPrice() {
         return $this->price;
     }
 
+    // Setter per qmimin
     public function setPrice($price) {
         $this->price = $price;
     }
+}
 
-    // Funksionet Get dhe Set për atributin type
-    public function getType() {
-        return $this->type;
+// Definimi i nje super klase House  
+class House extends RealEstateProperty {
+    // Atribute shtesë specifike për shtëpinë
+    private $numberOfRooms;
+
+    // Konstruktori
+    public function __construct($propertyType, $location, $price, $numberOfRooms) {
+        // Thirrja e konstruktorit te klases prind
+        parent::__construct($propertyType, $location, $price);
+        $this->numberOfRooms = $numberOfRooms;
     }
 
-    public function setType($type) {
-        $this->type = $type;
+    // Getter per numrin e dhomave 
+    public function getNumberOfRooms() {
+        return $this->numberOfRooms;
     }
 
-     // Definimi i metodave te klases
-    // Metoda për të shfaqur detajet e pronës
-    public function displayDetails() {
-        return "Address: {$this->address}, Price: {$this->price}, Type: {$this->type}";
+    // Setter per numrin e dhomave 
+    public function setNumberOfRooms($numberOfRooms) {
+        $this->numberOfRooms = $numberOfRooms;
     }
 }
 
+// Krijimi i nje instance te klases House 
+$house = new House("House", "123 Main St", 250000, 4);
+
+// Qasja dhe shfaqja e detajeve të pronës
+echo "<p>Property Type: " . $house->getPropertyType() . "</p>";
+echo "<p>Location: " . $house->getLocation() . "</p>";
+echo "<p>Price: $" . $house->getPrice() . "</p>";
+echo "<p>Number of Rooms: " . $house->getNumberOfRooms() . "</p>";
+?>
 
 
-// Krijimi i disa instancave të klasave dhe shfaqja e  detajeve
-$property1 = new Property("Adem Jashari", 240000, "Shtepi");
-        $property2 = new Property("Rruga B", 320000, "Apartament");
 
+    
+
+    
 
 
