@@ -3,11 +3,11 @@ $("#shbutton").click(function () {
 });
 
 
-$(document).ready(function() {
- $("#submit").mousedown(function() {
-   alert("thank you for contacting us");
- });
-});
+// $(document).ready(function() {
+//  $("#submit").mousedown(function() {
+//    alert("thank you for contacting us");
+//  });
+// });
 
 
 const gName = document.getElementById('name');
@@ -15,6 +15,15 @@ const gEmail = document.getElementById('email');
 const gMessage = document.getElementById('message');
 const submit = document.getElementById('submit');
 
+var xhr = new XMLHttpRequest();
+xhr.open('GET', 'userData.php', true);
+xhr.onload = function() {
+  if (this.status == 200) {
+    var displayData = document.getElementById('hero');
+    displayData.innerHTML += this.responseText;
+  }
+};
+xhr.send();
 
 submit.addEventListener("click", function(event) {
   checkEmpty(event, gName, gEmail, gMessage);
@@ -31,10 +40,10 @@ function checkEmpty(event, gName, gEmail, gMessage) {
     alert("Please write a Message");
     event.preventDefault();
   } else {
-    setTimeout(() => {
-      callback1(greet);
-    }, 2000);
-    event.preventDefault();
+    // setTimeout(() => {
+    //   callback1(greet);
+    // }, 2000);
+    // event.preventDefault();
   }
 }
 
